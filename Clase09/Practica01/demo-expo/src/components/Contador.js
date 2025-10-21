@@ -5,17 +5,17 @@ class Contador extends Component {
     constructor(){
         super();
         this.state = {
-            clicks: 0,
+            clicks: 0
         }
     }
     sumar(){
-        this.setState((clicks) => ({clicks: clicks + 1}))
+        this.setState(clicks => ({clicks: this.state.clicks + 1}))
     }
     render() {
         return(
             <View style = {styles.container}>
-                <Text>Cantidad de Clicks: {clicks}</Text>
-                <Pressable  style = {styles.clickeable} onPress={this.sumar()}>
+                <Text>Cantidad de Clicks: {this.state.clicks}</Text>
+                <Pressable  style = {styles.clickeable} onPress={() => this.sumar()}>
                     <Text style = {styles.textoClickeable}>Click aqui para contar</Text>
                 </Pressable>
             </View>
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
     },
     textoClickeable: {
+        alignItems: 'center',
         fontWeight: 'bold',
     }
 });

@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
     },
     textoClickeable: {
+        alignItems: 'center',
         fontWeight: 'bold',
     }
 });
