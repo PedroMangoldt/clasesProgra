@@ -7,8 +7,8 @@ export default function Card(props){
             <Image style={styles.image} source={{uri: props.image}} resizeMode='contain'/>
             <View style={styles.info}>
                 <Text>Nombre: {props.name}</Text>
-                <Text>Precio: {props.species}</Text>
-                <Text>Descripcion: {props.gender}</Text>
+                <Text>Species: {props.species}</Text>
+                <Text>Gender: {props.gender}</Text>
             </View>
         </View>
     )

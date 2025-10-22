@@ -8,18 +8,20 @@ class Register extends Component {
         this.state = {
             email: '',
             password: '',
+            userName: ''
         }
     }
-    onSumbit() {
-        console.log(this.state.email, this.state.password)
+    onSubmit() {
+        console.log(this.state.email, this.state.password, this.state.userName)
     }
     render(){
         return(
             <View>
                 <Text style = {styles.title}>Formulario de Registro</Text>
-                <TextInput style={styles.field} keyboardType='email-address' placeholder='email' onChangeText={ text => this.setState({email:text}) } value={this.state.email} />
-                <TextInput style={styles.field} keyboardType='default' placeholder='password' secureTextEntry={true}  onChangeText={ text => this.setState({password:text}) } value={this.state.password}/> 
-                <Pressable onPress={() => this.onSubmit()}>
+                <TextInput style={styles.field} keyboardType='email-address' placeholder='Email' onChangeText={ text => this.setState({email:text}) } value={this.state.email} />
+                <TextInput style={styles.field} keyboardType='default' placeholder='User Name' onChangeText={ text => this.setState({userName:text}) } value={this.state.userName}/> 
+                <TextInput style={styles.field} keyboardType='default' placeholder='Password' secureTextEntry={true}  onChangeText={ text => this.setState({password:text}) } value={this.state.password}/> 
+                <Pressable style={styles.button} onPress={() => this.onSubmit()}>
                     <Text>  Registrarse </Text> 
                 </Pressable> 
                 <Pressable style = {styles.clickeable} onPress={ ()=> this.props.navigation.navigate('Login')}>
@@ -47,7 +49,24 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     field:{
-
+        height: 20,
+        paddingVertical: 15,
+        paddingHorizontal: 10,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderStyle: 'solid',
+        borderRadius: 6,
+        marginVertical: 10
+    },
+    button: {
+        backgroundColor: '#28a745',
+        paddingHorizontal: 10,
+        paddingVertical: 6,
+        alignItems: 'center',
+        borderRadius: 4,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: '#28a745'
     }
 })
 

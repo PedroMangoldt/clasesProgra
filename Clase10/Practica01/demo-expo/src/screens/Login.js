@@ -8,11 +8,10 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
-            userName: '',
         }
     }
-    onSumbit() {
-        console.log(this.state.email, this.state.password, this.state.userName )
+    onSubmit() {
+        console.log(this.state.email, this.state.password)
     }
     render(){
         return(
@@ -20,7 +19,7 @@ class Login extends Component {
                 <Text style = {styles.title}>Formulario de Login</Text>
                 <TextInput style={styles.field} keyboardType='email-address' placeholder='email' onChangeText={ text => this.setState({email:text}) } value={this.state.email} />
                 <TextInput style={styles.field} keyboardType='default' placeholder='password' secureTextEntry={true} onChangeText={ text => this.setState({password:text}) } value={this.state.password}/>
-                <Pressable onPress={() => this.onSubmit()}>
+                <Pressable style={styles.button} onPress={() => this.onSubmit()}>
                     <Text> Login </Text> 
                 </Pressable> 
                 <Pressable style = {styles.clickeableUno} onPress={ ()=> this.props.navigation.navigate('Register')}>
@@ -36,11 +35,13 @@ class Login extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 10,
+        paddingHorizontal: 10,
+        marginTop: 20
     },
     title: {
-        fontSize: 24,
+        fontSize: 22,
         fontWeight: 'bold',
+        marginBottom: 6
     },
     clickeableUno: {
         backgroundColor: 'lightblue',
@@ -59,7 +60,24 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     field:{
-
+        height: 20,
+        paddingVertical: 15,
+        paddingHorizontal: 10,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderStyle: 'solid',
+        borderRadius: 6,
+        marginVertical: 10
+    },
+    button: {
+        backgroundColor: '#28a745',
+        paddingHorizontal: 10,
+        paddingVertical: 6,
+        alignItems: 'center',
+        borderRadius: 4,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: '#28a745'
     }
 })
 
